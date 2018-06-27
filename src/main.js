@@ -8,6 +8,10 @@ import 'vuetify/dist/vuetify.min.css'
 
 Vue.use(Vuetify)
 
+Vue.filter('uppercase', (value) => value.toUpperCase())
+Vue.filter('lowercase', (value) => value.toLowerCase())
+Vue.filter('price', (value) => Math.round(parseInt(value)).toLocaleString("ru"))
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
