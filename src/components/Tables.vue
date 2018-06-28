@@ -2,6 +2,8 @@
   
   <v-container fluid grid-list-md>
     
+
+    
     <input type="text" class="form-control" placeholder="Поиск" aria-label="Username" aria-describedby="basic-addon1"  v-model="searchName" autofocus>
     <v-layout row wrap>
     <v-flex v-if="name.showItem == 1" d-flex xs12 sm6 v-for="name in filteredNames" :key="name.id">
@@ -49,9 +51,6 @@ export default {
   data() {
     return {
       //////
-      show: false,
-      lorem: `Lorem ipsum dolor sit amet, mel at clita quando. Te sit oratio vituperatoribus, nam ad ipsum posidonium mediocritatem, explicari dissentiunt cu mea. Repudiare disputationi vim in, mollis iriure nec cu, alienum argumentum ius ad. Pri eu justo aeque torquatos.`,
-      temp: 1000000,
 
       names: [
         /////////////////
