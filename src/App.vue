@@ -26,6 +26,9 @@
             <router-link tag="li" class="nav-item" to="/discount" active-class="active">
           <a class="nav-link">Уценка</a>
         </router-link> 
+            <router-link tag="li" class="nav-item" to="/disc" active-class="active">
+          <a class="nav-link">Уценка ВСЯ</a>
+        </router-link> 
     
       </ul>
     </div>
