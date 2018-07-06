@@ -23,6 +23,9 @@
         <router-link tag="li" class="nav-item" to="/temp" active-class="active">
           <a class="nav-link">Temp</a>
         </router-link> 
+            <router-link tag="li" class="nav-item" to="/discount" active-class="active">
+          <a class="nav-link">Уценка</a>
+        </router-link> 
     
       </ul>
     </div>
