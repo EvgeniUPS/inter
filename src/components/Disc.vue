@@ -66,7 +66,7 @@ export default {
 {id: '35290', showItem: '1', factory: 'ALF GROUP', model: '', cover: '', description: 'ALF GROUP сп.MODERN rovere moro', art: 'SPEN SPECCHIERA 110*91', stock: '1', firstPrice : '5510', finalPrice: '1928.5', image : '/static/img/discount/35290.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: ''},
 {id: '132511', showItem: '1', factory: 'ALF GROUP сп.Vittoria', model: '', cover: '', description: 'ALF GROUP сп.Vittoria', art: 'CD3VT  Comodino', stock: '2', firstPrice : '22482', finalPrice: '7868.7', image : '/static/img/discount/132511.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: 'тумбочка,'},
 {id: '131550', showItem: '1', factory: 'ALF AMERICA', model: '', cover: '', description: 'ALF AMERICA сп.ITALIA fin.CANALETTO', art: 'PJIT0175 LETTO con RETE ORTOP.KS 193x203', stock: '1', firstPrice : '75237', finalPrice: '26332.95', image : '/static/img/discount/131550.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: 'Кровать, '},
-{id: '35359', showItem: '1', factory: 'ALTOBEL ANTONIO', model: '', cover: '', description: 'ALTOBEL ANTONIO', art: 'T30 COCKTAIL TABLE CLOCKS BATTERY OPERAT', stock: '1', firstPrice : '0', finalPrice: '0', image : '/static/img/discount/35359.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: 'Стол'},
+{id: '35359', showItem: '1', factory: 'ALTOBEL ANTONIO', model: '', cover: '', description: 'ALTOBEL ANTONIO', art: 'T30 COCKTAIL TABLE CLOCKS BATTERY OPERAT', stock: '1', firstPrice : '90750', finalPrice: '31763', image : '/static/img/discount/35359.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: 'Стол'},
 {id: '108975', showItem: '1', factory: 'BAMAX гост.LORD', model: '', cover: '', description: 'BAMAX гост.LORD', art: '90465 sedia 48*46*91 pele LENA 5432', stock: '2', firstPrice : '24776', finalPrice: '8671.6', image : '/static/img/discount/108975.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: 'стул'},
 {id: '43695', showItem: '1', factory: 'CATELLAN ITALIA гост.', model: '', cover: '', description: 'CATELLAN ITALIA гост.', art: 'WALLY/B LIBRERIA 125*26.2*62H **GOFFRATO NERO**', stock: '1', firstPrice : '37316', finalPrice: '13060.6', image : '/static/img/discount/43695.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: ''},
 {id: '42661', showItem: '1', factory: 'CATELLAN ITALIA гост.', model: '', cover: '', description: 'CATELLAN ITALIA гост.', art: 'СТОЛ 220/320 *106*75 mod.MONACO DRIVE', stock: '1', firstPrice : '173909', finalPrice: '60868.15', image : '/static/img/discount/42661.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: ''},
@@ -613,7 +613,10 @@ export default {
   /* padding-bottom: 170px; */
   font-size: 17px;
 }
-
+input{
+  position: fixed;
+  z-index: 1;
+}
 .product-image img {
   max-width: 100%;
 }
