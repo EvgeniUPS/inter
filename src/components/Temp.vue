@@ -2,19 +2,32 @@
   
   <v-container fluid grid-list-md>
     
-    <input type="text" class="form-control" placeholder="Поиск" aria-label="Username" aria-describedby="basic-addon1"  v-model="searchName" autofocus>
+    <!-- <input box clearable type="text" class="form-control" placeholder="Поиск" aria-label="Username" aria-describedby="basic-addon1"  v-model="searchName" autofocus> -->
+
+        <v-flex md12>
+          <v-text-field
+            v-model="searchName"
+            box
+            label="Поиск"
+            clearable
+          ></v-text-field>
+        </v-flex>
+
     <v-layout row wrap>
     <v-flex v-if="name.showItem == 1" d-flex md12 lg6 v-for="name in filteredNames" :key="name.id">
        <v-card  >
-          <v-card-title primary-title>
+          <v-card-title primary-title >
           <div>
             <div class="headline "> {{name.factory}} <br> ({{name.art}}) </div>
             <p class="text-xs-right grey--text">Код товара: {{name.id}} </p>
+            <p> {{name.id}} </p>
           </div>
         </v-card-title>
         <v-card-media
           :src="name.image"
           height="500px"
+
+        
         >
         </v-card-media>
         <v-card-title primary-title>
@@ -25,8 +38,7 @@
             <span class="red--text headline">После скидки: {{name.finalPrice | price}} грн. </span>
           </div>
         </v-card-title>
-        <v-card-actions>
-          <!-- <v-btn flat>Share</v-btn> -->
+        <!-- <v-card-actions>
           <v-btn flat color="purple">Explore</v-btn>
           <v-spacer></v-spacer>
           <v-btn icon @click.native="show = !show">
@@ -37,12 +49,12 @@
           <v-card-text v-show="show">
             {{name.art}}
           </v-card-text>
-        </v-slide-y-transition>
+        </v-slide-y-transition> -->
       </v-card>
     </v-flex>
      </v-layout>
 
-
+    
 
   </v-container>
   </template>
@@ -52,21 +64,22 @@ export default {
   data() {
     return {
       show: false,
+      dialog: false,
       //////
 
       names: [
         /////////////////
-        
-        {id: '23633', showItem: '1', factory: 'ALF GROUP шкафы MIXER', model: '', cover: '', description: 'ALF GROUP шкафы MIXER', art: 'CAS023 ARMADIO FLOREAL complanare 2 ante scorrevoli H255 L302.5 P62.6(nero opaco', stock: '1', firstPrice : '204156', finalPrice: '71454.6', image : '/static/img/discount/23633.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: 'Шкаф'},
+
+{id: '23633', showItem: '0', factory: 'ALF GROUP шкафы MIXER', model: '', cover: '', description: 'ALF GROUP шкафы MIXER', art: 'CAS023 ARMADIO FLOREAL complanare 2 ante scorrevoli H255 L302.5 P62.6(nero opaco', stock: '1', firstPrice : '204156', finalPrice: '71454.6', image : '/static/img/discount/23633.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: 'Шкаф'},
 {id: '27994', showItem: '1', factory: 'ALF GROUP', model: '', cover: '', description: 'ALF GROUP сп.MODERN rovere moro', art: 'C3MMT como MITOS L155cm', stock: '1', firstPrice : '48518', finalPrice: '16981.3', image : '/static/img/discount/27994.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: 'Комод'},
-{id: '39152', showItem: '1', factory: 'ALF GROUP', model: '', cover: '', description: 'ALF GROUP сп.MODERN rovere moro', art: 'L9CPR LETTO PARENTESI', stock: '1', firstPrice : '81707', finalPrice: '28597.45', image : '/static/img/discount/39152.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: 'Кровать, '},
+{id: '39152', showItem: '1', factory: 'ALF GROUP', model: '', cover: '', description: 'ALF GROUP сп.MODERN rovere moro', art: 'L9CPR LETTO PARENTESI', stock: '1', firstPrice : '81707', finalPrice: '28597.45', image : '/static/img/discount/39152.jpg', sizeW : '176', sizeD : '217', sizeH: '89', country: 'Италия', tags: 'Кровать, с контейнером, с боксом, сп160'},
 {id: '27993', showItem: '1', factory: 'ALF GROUP', model: '', cover: '', description: 'ALF GROUP сп.MODERN rovere moro', art: 'PSMT panca laterale DX', stock: '1', firstPrice : '14351', finalPrice: '5022.85', image : '/static/img/discount/27993.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: ''},
 {id: '27992', showItem: '1', factory: 'ALF GROUP', model: '', cover: '', description: 'ALF GROUP сп.MODERN rovere moro', art: 'PSMT panca laterale SX', stock: '1', firstPrice : '13685', finalPrice: '4789.75', image : '/static/img/discount/27992.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: ''},
 {id: '27995', showItem: '1', factory: 'ALF GROUP', model: '', cover: '', description: 'ALF GROUP сп.MODERN rovere moro', art: 'SP1MT specchiere MITOS L144.4', stock: '1', firstPrice : '13685', finalPrice: '4789.75', image : '/static/img/discount/27995.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: ''},
 {id: '35290', showItem: '1', factory: 'ALF GROUP', model: '', cover: '', description: 'ALF GROUP сп.MODERN rovere moro', art: 'SPEN SPECCHIERA 110*91', stock: '1', firstPrice : '5510', finalPrice: '1928.5', image : '/static/img/discount/35290.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: ''},
 {id: '132511', showItem: '1', factory: 'ALF GROUP сп.Vittoria', model: '', cover: '', description: 'ALF GROUP сп.Vittoria', art: 'CD3VT  Comodino', stock: '2', firstPrice : '22482', finalPrice: '7868.7', image : '/static/img/discount/132511.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: 'тумбочка,'},
 {id: '131550', showItem: '1', factory: 'ALF AMERICA', model: '', cover: '', description: 'ALF AMERICA сп.ITALIA fin.CANALETTO', art: 'PJIT0175 LETTO con RETE ORTOP.KS 193x203', stock: '1', firstPrice : '75237', finalPrice: '26332.95', image : '/static/img/discount/131550.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: 'Кровать, '},
-{id: '35359', showItem: '1', factory: 'ALTOBEL ANTONIO', model: '', cover: '', description: 'ALTOBEL ANTONIO', art: 'T30 COCKTAIL TABLE CLOCKS BATTERY OPERAT', stock: '1', firstPrice : '90750', finalPrice: '31763', image : '/static/img/discount/35359.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: 'Стол'},
+{id: '35359', showItem: '1', factory: 'ALTOBEL ANTONIO', model: '', cover: '', description: 'ALTOBEL ANTONIO', art: 'T30 COCKTAIL TABLE CLOCKS BATTERY OPERAT', stock: '1', firstPrice : '90750', finalPrice: '31762.5', image : '/static/img/discount/35359.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: 'Стол, часы'},
 {id: '108975', showItem: '1', factory: 'BAMAX гост.LORD', model: '', cover: '', description: 'BAMAX гост.LORD', art: '90465 sedia 48*46*91 pele LENA 5432', stock: '2', firstPrice : '24776', finalPrice: '8671.6', image : '/static/img/discount/108975.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: 'стул'},
 {id: '43695', showItem: '1', factory: 'CATELLAN ITALIA гост.', model: '', cover: '', description: 'CATELLAN ITALIA гост.', art: 'WALLY/B LIBRERIA 125*26.2*62H **GOFFRATO NERO**', stock: '1', firstPrice : '37316', finalPrice: '13060.6', image : '/static/img/discount/43695.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: ''},
 {id: '42661', showItem: '1', factory: 'CATELLAN ITALIA гост.', model: '', cover: '', description: 'CATELLAN ITALIA гост.', art: 'СТОЛ 220/320 *106*75 mod.MONACO DRIVE', stock: '1', firstPrice : '173909', finalPrice: '60868.15', image : '/static/img/discount/42661.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: ''},
@@ -86,33 +99,33 @@ export default {
 {id: '74246', showItem: '1', factory: 'DAVOS NERO LACCATO LUCIDO', model: '', cover: '', description: 'DAVOS NERO LACCATO LUCIDO', art: 'GIORGIA-PN poltrona tes.028/90  запрос 859', stock: '1', firstPrice : '7216', finalPrice: '2525.6', image : '/static/img/discount/74246.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: ''},
 {id: '75398', showItem: '1', factory: 'DAVOS NERO LACCATO LUCIDO', model: '', cover: '', description: 'DAVOS NERO LACCATO LUCIDO', art: 'GLOBUS-T tavolo 160/210*90*h75', stock: '2', firstPrice : '35045', finalPrice: '12265.75', image : '/static/img/discount/75398.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: ''},
 {id: '95375', showItem: '1', factory: 'DAVOS NERO LACCATO LUCIDO', model: '', cover: '', description: 'DAVOS NERO LACCATO LUCIDO', art: 'Victoria-S sedia fin.nero luc./tess.as photo DP/028-95', stock: '14', firstPrice : '8278', finalPrice: '2897.3', image : '/static/img/discount/95375.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: 'стул'},
-{id: '70480', showItem: '1', factory: 'DAVOS wenge', model: '', cover: '', description: 'DAVOS wenge', art: 'BORIS-T  tavolo rotondo vetro black d.120+45', stock: '1', firstPrice : '26380', finalPrice: '9233', image : '/static/img/discount/70480.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: ''},
-{id: '70490', showItem: '1', factory: 'DAVOS wenge', model: '', cover: '', description: 'DAVOS wenge', art: 'CETRA-SIM sedia 025/76', stock: '10', firstPrice : '4317', finalPrice: '1510.95', image : '/static/img/discount/70490.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: 'стул'},
-{id: '70489', showItem: '1', factory: 'DAVOS wenge', model: '', cover: '', description: 'DAVOS wenge', art: 'CETRA-ST sedia 025/76', stock: '11', firstPrice : '4123', finalPrice: '1443.05', image : '/static/img/discount/70489.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: 'стул'},
+{id: '70480', showItem: '1', factory: 'DAVOS wenge', model: '', cover: '', description: 'DAVOS wenge', art: 'BORIS-T  tavolo rotondo vetro black d.120+45', stock: '1', firstPrice : '26380', finalPrice: '9233', image : '/static/img/discount/70480.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: 'стол'},
+{id: '70490', showItem: '1', factory: 'DAVOS wenge', model: '', cover: '', description: 'DAVOS wenge', art: 'CETRA-SIM sedia 025/76', stock: '10', firstPrice : '4317', finalPrice: '1510.95', image : '/static/img/discount/70490.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: 'стул, венге'},
+{id: '70489', showItem: '1', factory: 'DAVOS wenge', model: '', cover: '', description: 'DAVOS wenge', art: 'CETRA-ST sedia 025/76', stock: '11', firstPrice : '4123', finalPrice: '1443.05', image : '/static/img/discount/70489.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: 'стул, венге'},
 {id: '70677', showItem: '1', factory: 'DAVOS wenge', model: '', cover: '', description: 'DAVOS wenge', art: 'CINDY-S стул met.silver+beech wenge', stock: '4', firstPrice : '4123', finalPrice: '1443.05', image : '/static/img/discount/70677.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: ''},
 {id: '37312', showItem: '1', factory: 'DAVOS wenge', model: '', cover: '', description: 'DAVOS wenge', art: 'COMO/T TABLE 90/160*80H75', stock: '3', firstPrice : '17329', finalPrice: '6065.15', image : '/static/img/discount/37312.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: 'Стол'},
 {id: '81239', showItem: '1', factory: 'DAVOS wenge', model: '', cover: '', description: 'DAVOS wenge', art: 'EXEL-T стол 90/180*90*h75', stock: '1', firstPrice : '16911', finalPrice: '5918.85', image : '/static/img/discount/81239.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: ''},
-{id: '99484', showItem: '1', factory: 'DAVOS wenge', model: '', cover: '', description: 'DAVOS wenge', art: 'LOLA-S sedia DP/028-92 L31*P41*H96', stock: '4', firstPrice : '3866', finalPrice: '1353.1', image : '/static/img/discount/99484.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: 'стул'},
-{id: '70483', showItem: '1', factory: 'DAVOS wenge', model: '', cover: '', description: 'DAVOS wenge', art: 'LUANA-S sedia 028/84', stock: '2', firstPrice : '4381', finalPrice: '1533.35', image : '/static/img/discount/70483.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: 'стул'},
-{id: '92700', showItem: '1', factory: 'DAVOS wenge', model: '', cover: '', description: 'DAVOS wenge', art: 'LUIGIA-S sedia 025/69', stock: '4', firstPrice : '4671', finalPrice: '1634.85', image : '/static/img/discount/92700.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: 'стул'},
-{id: '70481', showItem: '1', factory: 'DAVOS wenge', model: '', cover: '', description: 'DAVOS wenge', art: 'LUIGIA-S sedia 028/81', stock: '1', firstPrice : '4671', finalPrice: '1634.85', image : '/static/img/discount/70481.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: 'стул'},
-{id: '70482', showItem: '1', factory: 'DAVOS wenge', model: '', cover: '', description: 'DAVOS wenge', art: 'LUIGIA-SG bar sedia 028/81 *снят', stock: '1', firstPrice : '5315', finalPrice: '1860.25', image : '/static/img/discount/70482.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: 'стул'},
+{id: '99484', showItem: '1', factory: 'DAVOS wenge', model: '', cover: '', description: 'DAVOS wenge', art: 'LOLA-S sedia DP/028-92 L31*P41*H96', stock: '4', firstPrice : '3866', finalPrice: '1353.1', image : '/static/img/discount/99484.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: 'стул, венге'},
+{id: '70483', showItem: '1', factory: 'DAVOS wenge', model: '', cover: '', description: 'DAVOS wenge', art: 'LUANA-S sedia 028/84', stock: '2', firstPrice : '4381', finalPrice: '1533.35', image : '/static/img/discount/70483.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: 'стул, венге'},
+{id: '92700', showItem: '1', factory: 'DAVOS wenge', model: '', cover: '', description: 'DAVOS wenge', art: 'LUIGIA-S sedia 025/69', stock: '4', firstPrice : '4671', finalPrice: '1634.85', image : '/static/img/discount/92700.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: 'стул, венге'},
+{id: '70481', showItem: '1', factory: 'DAVOS wenge', model: '', cover: '', description: 'DAVOS wenge', art: 'LUIGIA-S sedia 028/81', stock: '1', firstPrice : '4671', finalPrice: '1634.85', image : '/static/img/discount/70481.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: 'стул, венге'},
+{id: '70482', showItem: '1', factory: 'DAVOS wenge', model: '', cover: '', description: 'DAVOS wenge', art: 'LUIGIA-SG bar sedia 028/81 *снят', stock: '1', firstPrice : '5315', finalPrice: '1860.25', image : '/static/img/discount/70482.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: 'стул, венге'},
 {id: '42993', showItem: '1', factory: 'DAVOS wenge', model: '', cover: '', description: 'DAVOS wenge', art: 'MILANO/S CHAIR metal chrome, DP/025-69', stock: '10', firstPrice : '4156', finalPrice: '1454.6', image : '/static/img/discount/42993.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: ''},
 {id: '37315', showItem: '1', factory: 'DAVOS wenge', model: '', cover: '', description: 'DAVOS wenge', art: 'PANDA/TO TABLE oval 140H35*95H75', stock: '3', firstPrice : '32178', finalPrice: '11262.3', image : '/static/img/discount/37315.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: 'Стол'},
 {id: '43195', showItem: '1', factory: 'DAVOS wenge', model: '', cover: '', description: 'DAVOS wenge', art: 'PANDA/TQ TABLE 160/210*90H75', stock: '1', firstPrice : '29763', finalPrice: '10417.05', image : '/static/img/discount/43195.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: 'Стол'},
 {id: '18179', showItem: '1', factory: 'DAVOS wenge', model: '', cover: '', description: 'DAVOS wenge', art: 'PATTY-S2 CHAIR без обивки', stock: '6', firstPrice : '7280', finalPrice: '2548', image : '/static/img/discount/18179.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: ''},
-{id: '40602', showItem: '1', factory: 'DAVOS wenge', model: '', cover: '', description: 'DAVOS wenge', art: 'SCALA-S  025-770 sedia', stock: '4', firstPrice : '3028', finalPrice: '1059.8', image : '/static/img/discount/40602.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: 'стул'},
-{id: '57965', showItem: '1', factory: 'DAVOS wenge', model: '', cover: '', description: 'DAVOS wenge', art: 'SCALA-S DP 025-02 sedia', stock: '1', firstPrice : '3028', finalPrice: '1059.8', image : '/static/img/discount/57965.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: 'стул'},
-{id: '93546', showItem: '1', factory: 'DAVOS wenge', model: '', cover: '', description: 'DAVOS wenge', art: 'SCALA-S sedia DP/025-78', stock: '10', firstPrice : '3028', finalPrice: '1059.8', image : '/static/img/discount/93546.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: 'стул'},
+{id: '40602', showItem: '1', factory: 'DAVOS wenge', model: '', cover: '', description: 'DAVOS wenge', art: 'SCALA-S  025-770 sedia', stock: '4', firstPrice : '3028', finalPrice: '1059.8', image : '/static/img/discount/40602.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: 'стул, венге'},
+{id: '57965', showItem: '1', factory: 'DAVOS wenge', model: '', cover: '', description: 'DAVOS wenge', art: 'SCALA-S DP 025-02 sedia', stock: '1', firstPrice : '3028', finalPrice: '1059.8', image : '/static/img/discount/57965.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: 'стул, венге'},
+{id: '93546', showItem: '1', factory: 'DAVOS wenge', model: '', cover: '', description: 'DAVOS wenge', art: 'SCALA-S sedia DP/025-78', stock: '10', firstPrice : '3028', finalPrice: '1059.8', image : '/static/img/discount/93546.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: 'стул, венге'},
 {id: '37318', showItem: '1', factory: 'DAVOS wenge', model: '', cover: '', description: 'DAVOS wenge', art: 'STEP/S CHAIR (DP/025-78)', stock: '1', firstPrice : '3093', finalPrice: '1082.55', image : '/static/img/discount/37318.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: ''},
 {id: '46065', showItem: '1', factory: 'DAVOS wenge', model: '', cover: '', description: 'DAVOS wenge', art: 'TOSCA-S tess.DP/025-69', stock: '1', firstPrice : '4156', finalPrice: '1454.6', image : '/static/img/discount/46065.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: ''},
 {id: '40318', showItem: '1', factory: 'DAVOS wenge', model: '', cover: '', description: 'DAVOS wenge', art: 'TOSCA-S tess.DP/025-78', stock: '2', firstPrice : '4156', finalPrice: '1454.6', image : '/static/img/discount/40318.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: ''},
 {id: '58525', showItem: '1', factory: 'DAVOS wenge', model: '', cover: '', description: 'DAVOS wenge', art: 'TOSCA-S tess.DP/028-81', stock: '6', firstPrice : '4156', finalPrice: '1454.6', image : '/static/img/discount/58525.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: ''},
-{id: '70484', showItem: '1', factory: 'DAVOS wenge', model: '', cover: '', description: 'DAVOS wenge', art: 'UDINE-VT tavolo 135/180*85*h75', stock: '2', firstPrice : '21130', finalPrice: '7395.5', image : '/static/img/discount/70484.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: ''},
+{id: '70484', showItem: '1', factory: 'DAVOS wenge', model: '', cover: '', description: 'DAVOS wenge', art: 'UDINE-VT tavolo 135/180*85*h75', stock: '2', firstPrice : '21130', finalPrice: '7395.5', image : '/static/img/discount/70484.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: 'стол'},
 {id: '86928', showItem: '1', factory: 'DAVOS wenge', model: '', cover: '', description: 'DAVOS wenge', art: 'VETTA - TL  стол  90/180*90*h75', stock: '2', firstPrice : '16524', finalPrice: '5783.4', image : '/static/img/discount/86928.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: ''},
-{id: '70491', showItem: '1', factory: 'DAVOS wenge', model: '', cover: '', description: 'DAVOS wenge', art: 'VETTA-T tavolo glass mokka 90/180**90*h75', stock: '3', firstPrice : '21581', finalPrice: '7553.35', image : '/static/img/discount/70491.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: ''},
+{id: '70491', showItem: '1', factory: 'DAVOS wenge', model: '', cover: '', description: 'DAVOS wenge', art: 'VETTA-T tavolo glass mokka 90/180**90*h75', stock: '3', firstPrice : '21581', finalPrice: '7553.35', image : '/static/img/discount/70491.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: 'стол'},
 {id: '4823', showItem: '1', factory: 'DIAMANTINI DOMENICONI', model: '', cover: '', description: 'DIAMANTINI DOMENICONI', art: '076 ЧАСЫ ciliegio стекло', stock: '1', firstPrice : '73181', finalPrice: '25613.35', image : '/static/img/discount/4823.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: 'часы'},
-{id: '78985', showItem: '1', factory: 'DIAMANTINI DOMENICONI', model: '', cover: '', description: 'DIAMANTINI DOMENICONI', art: '1720 WALL CLOCK', stock: '1', firstPrice : '14245', finalPrice: '4985.75', image : '/static/img/discount/78985.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: ''},
+{id: '78985', showItem: '1', factory: 'DIAMANTINI DOMENICONI', model: '', cover: '', description: 'DIAMANTINI DOMENICONI', art: '1720 WALL CLOCK', stock: '1', firstPrice : '14245', finalPrice: '4985.75', image : '/static/img/discount/78985.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: 'часы'},
 {id: '28025', showItem: '1', factory: 'DIAMANTINI DOMENICONI', model: '', cover: '', description: 'DIAMANTINI DOMENICONI', art: '418 CILIEGIO  ЧАСЫ НАСТЕН. КВАДРАТНЫЕ', stock: '4', firstPrice : '8371', finalPrice: '2929.85', image : '/static/img/discount/28025.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: 'часы'},
 {id: '30403', showItem: '1', factory: 'DIAMANTINI DOMENICONI', model: '', cover: '', description: 'DIAMANTINI DOMENICONI', art: '418 CILIEGIO  ЧАСЫ НАСТЕН. КРУГЛЫЕ', stock: '7', firstPrice : '8371', finalPrice: '2929.85', image : '/static/img/discount/30403.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: 'часы'},
 {id: '4816', showItem: '1', factory: 'DIAMANTINI DOMENICONI', model: '', cover: '', description: 'DIAMANTINI DOMENICONI', art: '50142* ТЕЛЕЖКА LEONARDO ciliegio', stock: '4', firstPrice : '11748', finalPrice: '4111.8', image : '/static/img/discount/4816.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: ''},
@@ -125,9 +138,9 @@ export default {
 {id: '106283', showItem: '1', factory: 'DIAMANTINI DOMENICONI', model: '', cover: '', description: 'DIAMANTINI DOMENICONI', art: '50620 журн.столик 145*55*22h', stock: '1', firstPrice : '55118', finalPrice: '19291.3', image : '/static/img/discount/106283.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: ''},
 {id: '77866', showItem: '1', factory: 'DIAMANTINI DOMENICONI', model: '', cover: '', description: 'DIAMANTINI DOMENICONI', art: '510 Часы green', stock: '1', firstPrice : '3378', finalPrice: '1182.3', image : '/static/img/discount/77866.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: 'часы'},
 {id: '77867', showItem: '1', factory: 'DIAMANTINI DOMENICONI', model: '', cover: '', description: 'DIAMANTINI DOMENICONI', art: '510 Часы orange', stock: '1', firstPrice : '3378', finalPrice: '1182.3', image : '/static/img/discount/77867.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: 'часы'},
-{id: '7773', showItem: '1', factory: 'DIAMANTINI DOMENICONI', model: '', cover: '', description: 'DIAMANTINI DOMENICONI', art: 'F6 CLOCK WITH SOUND механич.', stock: '2', firstPrice : '27902', finalPrice: '9765.7', image : '/static/img/discount/7773.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: ''},
-{id: '7771', showItem: '1', factory: 'DIAMANTINI DOMENICONI', model: '', cover: '', description: 'DIAMANTINI DOMENICONI', art: 'F7 CLOCK WITH SOUND механич.', stock: '3', firstPrice : '32161', finalPrice: '11256.35', image : '/static/img/discount/7771.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: ''},
-{id: '7772', showItem: '1', factory: 'DIAMANTINI DOMENICONI', model: '', cover: '', description: 'DIAMANTINI DOMENICONI', art: 'F9 CLOCK кварц.', stock: '5', firstPrice : '15909', finalPrice: '5568.15', image : '/static/img/discount/7772.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: ''},
+{id: '7773', showItem: '1', factory: 'DIAMANTINI DOMENICONI', model: '', cover: '', description: 'DIAMANTINI DOMENICONI', art: 'F6 CLOCK WITH SOUND механич.', stock: '2', firstPrice : '27902', finalPrice: '9765.7', image : '/static/img/discount/7773.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: 'часы'},
+{id: '7771', showItem: '1', factory: 'DIAMANTINI DOMENICONI', model: '', cover: '', description: 'DIAMANTINI DOMENICONI', art: 'F7 CLOCK WITH SOUND механич.', stock: '3', firstPrice : '32161', finalPrice: '11256.35', image : '/static/img/discount/7771.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: 'часы'},
+{id: '7772', showItem: '1', factory: 'DIAMANTINI DOMENICONI', model: '', cover: '', description: 'DIAMANTINI DOMENICONI', art: 'F9 CLOCK кварц.', stock: '5', firstPrice : '15909', finalPrice: '5568.15', image : '/static/img/discount/7772.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: 'часы'},
 {id: '136034', showItem: '1', factory: 'GIMO DOMUS', model: '', cover: '', description: 'GIMO DOMUS', art: 'Mu 300 Como Mon Amour L.160 P.60 H.79, fin. lucido aniegre', stock: '1', firstPrice : '111069', finalPrice: '38874.15', image : '/static/img/discount/136034.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: 'Комод'},
 {id: '88686', showItem: '1', factory: 'EUROPEO сп. START', model: '', cover: '', description: 'EUROPEO сп. START', art: 'LDS 1Y62 LETTO DESIREE contenitore 160  ECOPELLE 01', stock: '1', firstPrice : '43542', finalPrice: '15239.7', image : '/static/img/discount/88686.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: 'Кровать, '},
 {id: '141135', showItem: '1', factory: 'FERRO RAFFAELLO Mobili in stile noce', model: '', cover: '', description: 'FERRO RAFFAELLO Mobili in stile noce', art: '0205 POGGIAPIEDI COME FOTO', stock: '1', firstPrice : '8124', finalPrice: '2843.4', image : '/static/img/discount/141135.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: ''},
@@ -422,10 +435,10 @@ export default {
 {id: '4314', showItem: '1', factory: 'SPAR гост.ЭСМЕРАЛЬДА беж.', model: '', cover: '', description: 'SPAR гост.ЭСМЕРАЛЬДА беж.', art: 'SOPRALZO 1SDRQ', stock: '1', firstPrice : '44', finalPrice: '15.4', image : '/static/img/discount/4314.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: ''},
 {id: '4388', showItem: '1', factory: 'SPAR гост.BAVIERA', model: '', cover: '', description: 'SPAR гост.BAVIERA', art: '1PFMY02 TAVOLO LIBRO 100x100', stock: '1', firstPrice : '27606', finalPrice: '9662.1', image : '/static/img/discount/4388.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: ''},
 {id: '4526', showItem: '1', factory: 'SPAR гост. LOFT', model: '', cover: '', description: 'SPAR гост. LOFT', art: '1PFAY22 TAVOLO', stock: '3', firstPrice : '22719', finalPrice: '7951.65', image : '/static/img/discount/4526.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: ''},
-{id: '39345', showItem: '1', factory: 'SPAR гост.EXENTIAL wenge', model: '', cover: '', description: 'SPAR гост.EXENTIAL wenge', art: '1PFZY32 TAVOLO AVANA 160/220*90*h79', stock: '1', firstPrice : '37143', finalPrice: '13000.05', image : '/static/img/discount/39345.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: ''},
+{id: '39345', showItem: '1', factory: 'SPAR гост.EXENTIAL wenge', model: '', cover: '', description: 'SPAR гост.EXENTIAL wenge', art: '1PFZY32 TAVOLO AVANA 160/220*90*h79', stock: '1', firstPrice : '37143', finalPrice: '13000.05', image : '/static/img/discount/39345.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: 'стол'},
 {id: '39346', showItem: '1', factory: 'SPAR гост.EXENTIAL wenge', model: '', cover: '', description: 'SPAR гост.EXENTIAL wenge', art: '1PFZZ12 SEDIA AVANA', stock: '8', firstPrice : '7038', finalPrice: '2463.3', image : '/static/img/discount/39346.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: 'стул'},
 {id: '23092', showItem: '1', factory: 'SPAR гост.EXENTIAL wenge', model: '', cover: '', description: 'SPAR гост.EXENTIAL wenge', art: '1S88Z06  Sedia Pop  legno fondino in tessuto moka', stock: '2', firstPrice : '7168', finalPrice: '2508.8', image : '/static/img/discount/23092.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: 'стул'},
-{id: '23091', showItem: '1', factory: 'SPAR гост.EXENTIAL wenge', model: '', cover: '', description: 'SPAR гост.EXENTIAL wenge', art: '1S89Y02 Tavolo 90/180*909h79', stock: '1', firstPrice : '11747', finalPrice: '4111.45', image : '/static/img/discount/23091.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: ''},
+{id: '23091', showItem: '1', factory: 'SPAR гост.EXENTIAL wenge', model: '', cover: '', description: 'SPAR гост.EXENTIAL wenge', art: '1S89Y02 Tavolo 90/180*909h79', stock: '1', firstPrice : '11747', finalPrice: '4111.45', image : '/static/img/discount/23091.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: 'стол'},
 {id: '33121', showItem: '1', factory: 'SPAR гост. AVANA', model: '', cover: '', description: 'SPAR гост. AVANA', art: '1S88Z06 Стул POP', stock: '2', firstPrice : '7312', finalPrice: '2559.2', image : '/static/img/discount/33121.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: ''},
 {id: '127088', showItem: '1', factory: 'SPAR гост. DECO bianco frassino', model: '', cover: '', description: 'SPAR гост. DECO bianco frassino', art: '1P6BZA1A37 Sedia ecopelle bianco', stock: '3', firstPrice : '12762', finalPrice: '4466.7', image : '/static/img/discount/127088.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: 'стул'},
 {id: '39352', showItem: '1', factory: 'SPAR гост.EXENTIAL rovere sbiancato', model: '', cover: '', description: 'SPAR гост.EXENTIAL rovere sbiancato', art: '1S88Z02 sedia STILO rovere', stock: '4', firstPrice : '4970', finalPrice: '1739.5', image : '/static/img/discount/39352.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: 'стул'},
@@ -505,7 +518,9 @@ export default {
 {id: '28135', showItem: '1', factory: 'GIMO VOLPI сп.', model: '', cover: '', description: 'GIMO VOLPI сп.', art: '4201 MIRROR MINERVA wood F30 class 3', stock: '5', firstPrice : '45209', finalPrice: '15823.15', image : '/static/img/discount/28135.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: ''},
 {id: '14334', showItem: '1', factory: 'GIMO VOLPI сп.', model: '', cover: '', description: 'GIMO VOLPI сп.', art: '5002/K T3  ИЗГОЛОВЬЕ К КР-ТИ PERSIA 180*200 дер.F30, тк.cat.B cod.617 class 3', stock: '1', firstPrice : '121185', finalPrice: '42414.75', image : '/static/img/discount/14334.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: ''},
 {id: '28132', showItem: '1', factory: 'GIMO VOLPI сп.', model: '', cover: '', description: 'GIMO VOLPI сп.', art: '5027/K T2 ИЗГОЛОВЬЕ ROMEO wood F30 class3 tess cat.B cod696(as in catalog-propos', stock: '3', firstPrice : '134455', finalPrice: '47059.25', image : '/static/img/discount/28132.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: ''},
-{id: '28134', showItem: '1', factory: 'GIMO VOLPI сп.', model: '', cover: '', description: 'GIMO VOLPI сп.', art: '5981/K БАЛДАХИН wood F30 class 3(tess-proposta 13)', stock: '4', firstPrice : '138850', finalPrice: '48597.5', image : '/static/img/discount/28134.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: ''},
+
+  {id: '28134', showItem: '1', factory: 'GIMO VOLPI сп.', model: '', cover: '', description: 'GIMO VOLPI сп.', art: '5981/K БАЛДАХИН wood F30 class 3(tess-proposta 13)', stock: '4', firstPrice : '138850', finalPrice: '48597.5', image : '/static/img/discount/28134.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: ''},
+
 {id: '23860', showItem: '1', factory: 'GIMO VOLPI сп.', model: '', cover: '', description: 'GIMO VOLPI сп.', art: '6101/K КАРКАС (180*200) Foglia oro F30', stock: '4', firstPrice : '32484', finalPrice: '11369.4', image : '/static/img/discount/23860.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: ''},
 {id: '123767', showItem: '1', factory: 'GIMO VOLPI сп.', model: '', cover: '', description: 'GIMO VOLPI сп.', art: 'POLTRONA SOFIA tess.cat.B cod.618', stock: '2', firstPrice : '44958', finalPrice: '15735.3', image : '/static/img/discount/123767.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: ''},
 {id: '32171', showItem: '1', factory: 'GIMO VOLPI сп.', model: '', cover: '', description: 'GIMO VOLPI сп.', art: 'Z107/K покрывало с 2-я валиками tessB cod696', stock: '1', firstPrice : '68358', finalPrice: '23925.3', image : '/static/img/discount/32171.jpg', sizeW : '', sizeD : '', sizeH: '', country: 'Италия', tags: ''},

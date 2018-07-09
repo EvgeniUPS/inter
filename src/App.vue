@@ -47,13 +47,19 @@
     </v-toolbar>
     <v-content>
       <v-container fluid fill-height>
-       
+    <router-view></router-view>
+ 
       </v-container>
     </v-content>
     <!-- <v-footer color="teal darken-2" app>
       <span class="white--text">&copy; 2017</span>
     </v-footer> -->
-    <router-view></router-view>
+    <back-to-top >
+  <v-btn fixed right bottom fab dark color="cyan darken-3" @click="document.scrollTop = 0"><v-icon>arrow_upward</v-icon></v-btn>
+</back-to-top>
+
+
+
   </v-app>
 </template>
 
@@ -67,3 +73,5 @@ export default {
   }
 };
 </script>
+
+

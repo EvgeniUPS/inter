@@ -4,9 +4,11 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import Vuetify from 'vuetify'
+import BackToTop from 'vue-backtotop'
 import 'vuetify/dist/vuetify.min.css'
 
 Vue.use(Vuetify)
+Vue.use(BackToTop)
 
 Vue.filter('uppercase', (value) => value.toUpperCase())
 Vue.filter('lowercase', (value) => value.toLowerCase())
