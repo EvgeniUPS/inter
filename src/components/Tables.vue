@@ -107,7 +107,7 @@ export default {
           sizeD: "",
           sizeH: "",
           country: "Италия",
-          tags: ""
+          tags: "серый"
         },
         {
           id: "158525",

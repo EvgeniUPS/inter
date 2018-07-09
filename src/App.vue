@@ -1,47 +1,66 @@
 <template>
-  <div class="container">
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  
-  <div class="collapse navbar-collapse" >
-      <ul class="navbar-nav">
-        <!-- <li class="nav-item">
-          <router-link class="nav-item nav-link" to="/">Bedrooms</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link class="nav-item nav-link" :to="'/tables'">Tables</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link class="nav-item nav-link" :to="'/temp'">Temp</router-link>
-        </li> -->
+  <v-app id="inspire">
+    <v-navigation-drawer
+      v-model="drawer"
+      fixed
+      app
+    >
+      <v-list >
 
-        <router-link tag="li" class="nav-item" exact to="/" active-class="active">
-          <a class="nav-link">Home</a>
-        </router-link>
-        <router-link tag="li" class="nav-item" to="/tables" active-class="active">
-          <a class="nav-link">Tables</a>
-        </router-link>
-        <router-link tag="li" class="nav-item" to="/temp" active-class="active">
-          <a class="nav-link">Temp</a>
-        </router-link> 
-            <router-link tag="li" class="nav-item" to="/discount" active-class="active">
-          <a class="nav-link">Уценка</a>
-        </router-link> 
-            <router-link tag="li" class="nav-item" to="/disc" active-class="active">
-          <a class="nav-link">Уценка ВСЯ</a>
-        </router-link> 
-    
-      </ul>
-    </div>
-  </nav>
-  <router-view></router-view>
-</div>
-     
+        <v-list-tile @click="" to="/">
+          <v-list-tile-action>
+            <v-icon>home</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title>Home</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+
+
+    <v-list-tile @click="" to="/tables">
+          <v-list-tile-action>
+            <v-icon>keyboard_arrow_right</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title>Tables</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+
+            <v-list-tile @click="" to="/temp">
+          <v-list-tile-action>
+            <v-icon>keyboard_arrow_right</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title>Temp</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+
+
+
+        
+
+      </v-list>
+    </v-navigation-drawer>
+    <v-toolbar color="teal darken-2" dark fixed app>
+      <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
+      <v-toolbar-title>Interqd App v.1.0.1</v-toolbar-title>
+    </v-toolbar>
+    <v-content>
+      <v-container fluid fill-height>
+       
+      </v-container>
+    </v-content>
+    <!-- <v-footer color="teal darken-2" app>
+      <span class="white--text">&copy; 2017</span>
+    </v-footer> -->
+    <router-view></router-view>
+  </v-app>
 </template>
 
 <script>
 export default {
   data: () => ({
-    qqq: 1
+    drawer: null
   }),
   props: {
     source: String

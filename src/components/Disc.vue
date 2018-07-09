@@ -613,10 +613,7 @@ export default {
   /* padding-bottom: 170px; */
   font-size: 17px;
 }
-input{
-  position: fixed;
-  z-index: 1;
-}
+
 .product-image img {
   max-width: 100%;
 }
