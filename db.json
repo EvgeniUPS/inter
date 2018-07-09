@@ -1,3 +1,28 @@
 {
-  "products": []
+  "products": [
+    {
+      "factory": "qqw",
+      "model": "asdsad",
+      "productId": 2018,
+      "id": 1
+    },
+    {
+      "factory": "qqw",
+      "model": "asdsad",
+      "productId": 2018,
+      "id": 2
+    },
+    {
+      "factory": "",
+      "model": "",
+      "productId": 2018,
+      "id": 3
+    },
+    {
+      "factory": "",
+      "model": "",
+      "productId": 2018,
+      "id": 4
+    }
+  ]
 }
