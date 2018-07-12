@@ -11,6 +11,7 @@
             label="Поиск"
             clearable
           ></v-text-field>
+          <v-btn @click= "searchName = ''" block>reset</v-btn>
         </v-flex>
 
     <v-layout row wrap>
@@ -19,8 +20,8 @@
           <v-card-title primary-title >
           <div>
             <div class="headline "> {{name.factory}} <br> ({{name.art}}) </div>
-            <p class="text-xs-right grey--text">Код товара: {{name.id}} </p>
-            <p> {{name.id}} </p>
+            <!-- <p class="text-xs-right grey--text">{{name.id}} </p> -->
+            <p>Код товара: {{name.id}} </p>
           </div>
         </v-card-title>
         <v-card-media
