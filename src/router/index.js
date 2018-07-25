@@ -9,6 +9,7 @@ import Car from '@/components/Car'
 import Discount from '@/components/Discount'
 import Disc from '@/components/Disc'
 import Products from '@/components/Products'
+import Sofas from '@/components/Sofas'
 import VueResource from 'vue-resource';
 
 Vue.use(Router)
@@ -29,6 +30,11 @@ export default new Router({
     path: '/tables',
     name: 'Tables',
     component: Tables
+  },
+  {
+    path: '/sofas',
+    name: 'Sofas',
+    component: Sofas
   },
   {
     path: '/discount',
