@@ -22,7 +22,27 @@
             <v-icon>keyboard_arrow_right</v-icon>
           </v-list-tile-action>
           <v-list-tile-content>
-            <v-list-tile-title>Tables</v-list-tile-title>
+            <v-list-tile-title>Столы</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+
+
+
+        <v-list-tile @click="" to="/sofas">
+          <v-list-tile-action>
+            <v-icon>keyboard_arrow_right</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title>Мягкая</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+
+        <v-list-tile @click="" to="/discount">
+          <v-list-tile-action>
+            <v-icon>keyboard_arrow_right</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title>Уценка</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
 
@@ -31,7 +51,7 @@
             <v-icon>keyboard_arrow_right</v-icon>
           </v-list-tile-action>
           <v-list-tile-content>
-            <v-list-tile-title>Уценка</v-list-tile-title>
+            <v-list-tile-title>Dev</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
 
