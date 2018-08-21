@@ -28,7 +28,7 @@
           :src="name.image"
           height="500px"
 
-        
+         
         >
         </v-card-media>
         <v-card-title primary-title>
@@ -37,6 +37,10 @@
             <span class="grey--text">Цена: {{name.firstPrice | price}} грн. </span>
               <v-spacer></v-spacer>
             <span class="red--text headline">После скидки: {{name.finalPrice | price}} грн. </span>
+            <v-btn 
+                class="info"
+                :to="'/product/' + name.id"
+                >Open</v-btn>
           </div>
         </v-card-title>
         <!-- <v-card-actions>
