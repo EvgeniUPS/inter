@@ -11,6 +11,7 @@ import Disc from "@/components/Disc";
 import Products from "@/components/Products";
 import Product from "@/components/Product";
 import Sofas from "@/components/Sofas";
+import Decor from "@/components/Decor";
 import VueResource from "vue-resource";
 
 Vue.use(Router);
@@ -37,6 +38,11 @@ export default new Router({
       path: "/sofas",
       name: "Sofas",
       component: Sofas
+    },
+    {
+      path: "/decor",
+      name: "Decor",
+      component: Decor
     },
     {
       path: "/discount",

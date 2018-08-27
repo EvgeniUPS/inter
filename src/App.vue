@@ -37,6 +37,15 @@
           </v-list-tile-content>
         </v-list-tile>
 
+        <v-list-tile @click="" to="/decor">
+          <v-list-tile-action>
+            <v-icon>keyboard_arrow_right</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title>Decor</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+
         <v-list-tile @click="" to="/discount">
           <v-list-tile-action>
             <v-icon>keyboard_arrow_right</v-icon>
@@ -46,14 +55,14 @@
           </v-list-tile-content>
         </v-list-tile>
 
-        <v-list-tile @click="" to="/temp">
+        <!-- <v-list-tile @click="" to="/temp">
           <v-list-tile-action>
             <v-icon>keyboard_arrow_right</v-icon>
           </v-list-tile-action>
           <v-list-tile-content>
             <v-list-tile-title>Dev</v-list-tile-title>
           </v-list-tile-content>
-        </v-list-tile>
+        </v-list-tile> -->
 
 
         <!-- <v-list-tile @click="" to="/products">
