@@ -24,16 +24,16 @@
             <p>Код товара: {{name.id}} </p>
           </div>
         </v-card-title>
-        <v-card-media
+        <!-- <v-card-media
           :src="name.image"
           height="500px"
 
         
         >
-        </v-card-media>
+        </v-card-media> -->
         <v-card-title primary-title>
           <div>
-            <div class="headline"> ... </div>
+            <!-- <div class="headline"> ... </div> -->
             <span class="grey--text">Цена: {{name.firstPrice | price}} грн. </span>
               <v-spacer></v-spacer>
             <span class="red--text headline">После скидки: {{name.finalPrice | price}} грн. </span>
